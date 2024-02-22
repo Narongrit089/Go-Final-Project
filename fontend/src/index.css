@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+/* ต่อมาคุณสามารถใช้ฟอนต์ Sriracha ใน CSS ได้เหมือนเป็นฟอนต์ปกติ */
+/* :root {
+  font-family: 'Sriracha', cursive;
+} */
+
+.roboto-slab-regular {
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 400; /* หรืออื่นๆ ตามที่ต้องการ */
+  font-style: normal;
+}
