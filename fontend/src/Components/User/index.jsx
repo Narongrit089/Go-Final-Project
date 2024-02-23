@@ -62,7 +62,7 @@ const User = () => {
       );
 
       if (isDuplicateEmail) {
-        toast.error("Email นี้มีอยู่ในระบบแล้ว");
+        toast.error("Email This is already in the system.");
         return;
       }
 
@@ -91,7 +91,7 @@ const User = () => {
         setEditedName("");
         setEditedEmail("");
         setEditModalIsOpen(false); // Close edit modal
-        toast.success("การแก้ไขข้อมูลเสร็จสมบูรณ์"); // Add autoClose option to toast
+        toast.success("Data editing complete"); // Add autoClose option to toast
       } catch (error) {
         console.error(error);
       }
@@ -112,7 +112,7 @@ const User = () => {
       const updatedUsers = users.filter((user) => user.ID !== deletingUserId);
       setUsers(updatedUsers);
       setDeleteModalIsOpen(false); // Close delete modal
-      toast.success("ลบข้อมูลผู้ใช้เรียบร้อยแล้ว");
+      toast.success("User data has been successfully deleted.");
     } catch (error) {
       console.error(error);
     }
@@ -132,7 +132,7 @@ const User = () => {
     );
 
     if (isDuplicateEmail) {
-      toast.error("Email นี้มีอยู่ในระบบแล้ว");
+      toast.error("Email This is already in the system.");
       return;
     }
 
@@ -168,18 +168,12 @@ const User = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-3xl font-semibold mb-4 animate__animated animate__zoomInDown text-center">
+      <h1 className="text-3xl font-semibold mb-4 animate__animated animate__rubberBand text-center">
         User List
       </h1>
+
       <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg w-4/5 mx-auto">
-        <div className="flex justify-evenly">
-          <button
-            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-2"
-            onClick={openModal}
-          >
-            Add User
-          </button>
-        </div>
+        <div className="flex justify-evenly"></div>
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
@@ -204,7 +198,7 @@ const User = () => {
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
                     onClick={() => handleEdit(row)}
                   >
-                    แก้ไข
+                    Edit
                   </button>
                   <button
                     className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
@@ -213,7 +207,7 @@ const User = () => {
                       setDeleteModalIsOpen(true);
                     }}
                   >
-                    ลบ
+                    Delete
                   </button>
                 </td>
               </tr>
@@ -228,7 +222,7 @@ const User = () => {
         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-lg shadow-lg"
         overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-gray-800 bg-opacity-50"
       >
-        <h2 className="text-2xl font-semibold mb-4">เพิ่มข้อมูล</h2>
+        <h2 className="text-2xl font-semibold mb-4">Add User</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="flex flex-col space-y-2">
             <label htmlFor="name" className="text-sm font-medium text-gray-700">
@@ -276,7 +270,7 @@ const User = () => {
         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-lg shadow-lg"
         overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-gray-800 bg-opacity-50"
       >
-        <h2 className="text-2xl font-semibold mb-4">แก้ไขข้อมูล</h2>
+        <h2 className="text-2xl font-semibold mb-4">Edit User</h2>
         <form onSubmit={handleSaveEdit} className="space-y-4">
           <div className="flex flex-col space-y-2">
             <label
@@ -314,7 +308,7 @@ const User = () => {
             type="submit"
             className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
           >
-            บันทึก
+            Save
           </button>
           <button
             type="button"
@@ -325,7 +319,7 @@ const User = () => {
               setEditedEmail("");
             }}
           >
-            ยกเลิก
+            Cancel
           </button>
         </form>
       </Modal>
@@ -336,20 +330,20 @@ const User = () => {
         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-lg shadow-lg"
         overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-gray-800 bg-opacity-50"
       >
-        <h2 className="text-2xl font-semibold mb-4">ยืนยันการลบข้อมูล</h2>
-        <p>คุณแน่ใจหรือไม่ที่ต้องการลบข้อมูลผู้ใช้นี้?</p>
+        <h2 className="text-2xl font-semibold mb-4">Confirm data deletion</h2>
+        <p>Are you sure you want to delete this user data?</p>
         <div className="flex justify-center mt-4">
           <button
             className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-2"
             onClick={handleDelete}
           >
-            ยืนยัน
+            Confirm
           </button>
           <button
             className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
             onClick={() => setDeleteModalIsOpen(false)}
           >
-            ยกเลิก
+            Cancel
           </button>
         </div>
       </Modal>

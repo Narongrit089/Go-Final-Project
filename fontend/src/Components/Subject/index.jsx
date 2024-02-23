@@ -152,9 +152,10 @@ const Subject = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-3xl font-semibold mb-4 animate__animated animate__zoomInDown text-center">
+      <h1 className="text-3xl font-semibold mb-4 animate__animated animate__heartBeat text-center">
         Subject List
       </h1>
+
       <div className="shadow overflow-hIDden border-b border-gray-200 sm:rounded-lg w-4/5 mx-auto">
         <div className="flex justify-evenly">
           <button
